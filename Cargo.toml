@@ -2,6 +2,10 @@
 name = "future-runner"
 version = "0.0.1"
 edition = "2021"
+categories = ["asynchronous", "wasm"]
+keywords = ["futures", "async", "executor", "wasm", "runtime"]
+license = "MIT"
+repository = "https://github.com/piot/future-runner"
 
 [dependencies]
 wasm-bindgen-futures = "0.4.45"
@@ -12,7 +16,6 @@ tokio = { version = "1.36", optional = true, features = ["rt", "time"] }
 [features]
 threaded = ["dep:tokio"]
 block = []
-
 
 [dev-dependencies]
 tokio = { version = "1.36", features = ["rt", "time", "macros"] }
