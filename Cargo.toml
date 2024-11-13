@@ -1,0 +1,18 @@
+[package]
+name = "future-runner"
+version = "0.0.1"
+edition = "2021"
+
+[dependencies]
+wasm-bindgen-futures = "0.4.45"
+async-std = "1.13.0"
+futures = "0.3.31"
+tokio = { version = "1.36", optional = true, features = ["rt", "time"] }
+
+[features]
+threaded = ["dep:tokio"]
+block = []
+
+
+[dev-dependencies]
+tokio = { version = "1.36", features = ["rt", "time", "macros"] }
