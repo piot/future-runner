@@ -2,6 +2,8 @@
 name = "future-runner"
 version = "0.0.1"
 edition = "2021"
+
+description = "A lightweight future executor with WASM support and configurable runtime options for async Rust applications"
 categories = ["asynchronous", "wasm"]
 keywords = ["futures", "async", "executor", "wasm", "runtime"]
 license = "MIT"
