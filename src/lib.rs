@@ -61,8 +61,29 @@ pub fn run_future<F: std::future::Future<Output = ()> + 'static>(future: F) {
     }
 }
 
+/*
 #[cfg(target_arch = "wasm32")]
-pub fn run_future<F: std::future::Future<Output = ()> + 'static>(future: F) {
-    // WASM implementation stays the same
+pub fn run_future<Fut>(future: Fut)
+where
+    Fut: std::future::Future<Output = ()> + 'static,
+{
+    use wasm_bindgen_futures::spawn_local;
+
+    spawn_local(async move {
+        info!("Starting future...");
+
+        // Await the provided future
+        future.await;
+
+        info!("Future COMPLETED!");
+    });
+}
+*/
+
+#[cfg(target_arch = "wasm32")]
+pub fn run_future<Fut>(future: Fut)
+where
+    Fut: std::future::Future<Output = ()> + 'static,
+{
     wasm_bindgen_futures::spawn_local(future);
 }
